@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>cn.luis.coca</groupId>
+        <artifactId>coca-bom</artifactId>
+        <version>2.3.0</version>
+    </parent>
+
+    <artifactId>coca-starter</artifactId>
+    <version>1.0.0</version>
+
+    <packaging>pom</packaging>
+
+    <name>Coca Starter Maven Parent</name>
+
+    <modules>
+        <module>coca-spring-cloud-starter-dubbo-nacos</module>
+        <module>coca-spring-boot-starter-data-jpabatis</module>
+        <module>coca-spring-boot-starter-oss</module>
+
+        <module>coca-starter-test</module>
+    </modules>
+
+    <properties>
+        <maven.test.skip>true</maven.test.skip>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
+        <coca-starter-child-module.version>2.3.0</coca-starter-child-module.version>
+    </properties>
+
+    <developers>
+        <developer>
+            <email>luis97@163.com</email>
+            <name>luis</name>
+        </developer>
+    </developers>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <scope>test</scope>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+</project>

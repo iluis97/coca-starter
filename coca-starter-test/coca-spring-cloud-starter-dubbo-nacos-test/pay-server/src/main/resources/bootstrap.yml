@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: pay-server
+  profiles:
+    active: local
+  main:
+    allow-bean-definition-overriding: true
+    # 这里有个点需要注意，如果配置成不占用端口的方式启动(none)，若main方法执行完后，没其他的deamon线程在跑，应用就会自动关闭了
+    # 测试的时候可以改成servlet
+    web-application-type: servlet
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        namespace: local
+        group: order
+        username: nacos
+        password: nacos
+        file-extension: yaml
+        refresh-enabled: true
+server:
+  port: 8082

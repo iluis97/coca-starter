@@ -1,0 +1,39 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/coca_starter_db?useServerPrepStmts=true&cachePrepStmts=true&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8&useSSL=false&allowPublicKeyRetrieval=true
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      username: root
+      password: 'iluis97'
+      minimum-idle: 5
+      maximum-pool-size: 100
+      auto-commit: true
+      idle-timeout: 30000
+      pool-name: HikariCp
+      max-lifetime: 1800000
+      connection-timeout: 60000
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyJpaCompliantImpl
+    open-in-view: false
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false
+        jdbc:
+          batch_size: 500
+          batch_versioned_data: true
+        order_inserts: true
+        order_updates: true
+    show-sql: true
+mybatis:
+  # type-aliases-package: cn.luis.coca.jpabatis.test.domain;
+  mapper-locations: classpath*:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false

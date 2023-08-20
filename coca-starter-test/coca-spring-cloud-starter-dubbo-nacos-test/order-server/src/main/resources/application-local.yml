@@ -1,0 +1,28 @@
+dubbo:
+  scan:
+    base-packages: cn.luis.coca.dubbonacos.test.order.server.impl
+  protocol:
+    name: dubbo
+    serialization: kryo
+    port: -1
+  registry:
+    address: localhost:8848?username=nacos&password=nacos #naco 连接地址,namespace 为命名空间,不同命名空间的服务是隔离的,不可互相调用
+    check: false
+    group: coca-starter             #服务分组,服务默认分组,可以根据注解配置每个接口的分组,注意消费端也需要配置,如果分组不一致无法调用
+    version: 1.0              #服务提供方的接口版本号,默认配置为1.0,可以使用注解指定每个service 的版本号
+    protocol: nacos           #指定使用nacos作为注册中心,非必填
+    parameters:
+      namespace: local
+  consumer:
+    group: coca-starter           #服务消费者默认分组,可以使用注解指定服务分组,不同分组不可互相调用
+    check: false             #是否检查服务提供者可用情况,如果为true,那么程序启动会在注册中心检查是否有可用服务提供方,如果没有,快速失败,程序不可启动,建议关闭
+    version: 1.0            #消费者默认调用接口版本号,可以使用注解指定版本号
+    validation: true
+    retries: -1
+  provider:
+    version: 1.0            #服务提供方默认注册接口版本号
+    group: coca-starter          #服务提供方默认分组
+    retries: -1
+  metadata-report:
+    username: nacos
+    password: nacos

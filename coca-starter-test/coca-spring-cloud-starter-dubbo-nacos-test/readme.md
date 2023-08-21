@@ -1,7 +1,7 @@
 # Nacos
 
-> version: 2.1.2
-> 下载地址: https://github.com/alibaba/nacos/releases/tag/2.1.2
+> version: 2.2.0
+> 下载地址: https://github.com/alibaba/nacos/releases/tag/2.2.0
 
 单机启动命令
 
